@@ -95,6 +95,7 @@ B' * C' + B' * D + A * B'
 - [x] Research
 - [x] Implement method
 - [x] Optimise code (to the best of my ability)
-- [ ] Write clean code
-- [ ] Create release
-- [ ] Maintain project
+- [x] Write clean code (ish)
+- [x] Create release
+- [ ] Use a more descriptive method of simplification (providing steps, etc.)
+- [ ] Add a polished UI (maybe a web app?)
