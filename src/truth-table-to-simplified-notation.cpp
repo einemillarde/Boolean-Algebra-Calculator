@@ -44,24 +44,9 @@ vector<int> find_differences(string a, string b) {
     return changes;
 }
 
-void tt_to_notation() {
-    const auto TRUTH_STR = read_file(R"(C:\Users\IshanMishra\Personal-Projects\C++\Boolean-Algebra-Calculator\input-file.txt)");
-
-    const int NUM_INPUTS = TRUTH_STR.find(':');
-    if (NUM_INPUTS > VARIABLES.length()) {
-        cout << "Too many variables (max " << VARIABLES.length() << ")" << endl;
-        return;
-    }
+string tt_to_notation(const string& variables, const vector<int>& minterms) {
+    const int NUM_INPUTS = variables.length();
     const int COMBINATIONS = pow(2, NUM_INPUTS);
-
-    vector<int> minterms = {};
-
-    for (int i = 0; i < COMBINATIONS; i++) {
-        int minterm = TRUTH_STR[(NUM_INPUTS + 3) * i + NUM_INPUTS + 1] - '0';
-        if (minterm == 1) {
-            minterms.push_back(i);
-        }
-    }
 
     vector<vector<pair<vector<int>, string>>> table(NUM_INPUTS + 1);
 
@@ -138,10 +123,10 @@ void tt_to_notation() {
         const auto& term = essential_prime_implicants[i];
         for (int j = 0; j < NUM_INPUTS; j++) {
             if (term.second[j] == '1') {
-                notation_ss << VARIABLES[j];
+                notation_ss << variables[j];
                 notation_ss << " * ";
             } else if (term.second[j] == '0') {
-                notation_ss << VARIABLES[j] << "'";
+                notation_ss << variables[j] << "'";
                 notation_ss << " * ";
             }
         }
@@ -154,5 +139,5 @@ void tt_to_notation() {
         }
     }
 
-    cout << '\n' << notation_ss.str() << endl;
+    return notation_ss.str();
 }

@@ -27,13 +27,13 @@ There are more operators used in boolean algebra, but I will only be using these
 
 Truth tables are a way to represent the output of boolean expressions based on all possible combinations of inputs. Below are the truth tables for the basic operations: NOT, AND, and OR.
 
-##### NOT
+**NOT**
 | **Input** | **Output** |
 |---|---|
 | `0` | `1` |
 | `1` | `0` |
 
-##### AND
+**AND**
 | **Input1** | **Input2** | **Output** |
 |---|---|---|
 | `0` | `0` | `0` |
@@ -41,7 +41,7 @@ Truth tables are a way to represent the output of boolean expressions based on a
 | `1` | `0` | `0` |
 | `1` | `1` | `1` |
 
-##### OR
+**OR**
 | **Input1** | **Input2** | **Output** |
 |---|---|---|
 | `0` | `0` | `0` |
@@ -72,7 +72,23 @@ Thanks to [GeeksforGeeks](https://www.geeksforgeeks.org/boolean-algebra/) for pr
 
 ## Method of Simplification
 
-**Writing this is still in progress*
+The method used to simplify boolean expressions in this project (currently) is the Quine-McCluskey algorithm. It is a tabular method for minimizing boolean functions and is particularly useful for functions with a large number of variables.
+
+It takes the function's variables and minterms as input.
+
+<pre>
+Enter variables (e.g. ABC for 3 variables): <span style="color: #78b2ff;">ABCD</span>
+Enter minterms (e.g. 0 1 2 5 6 7): <span style="color: #78b2ff;">0 1 3 7 8 9 10 11 13 14</span>
+</pre>
+
+and spits out the simplified expression.
+
+```
+B' * C' + B' * D + A * B'
+```
+
+**More on the way this works will be added in a later commit. For now please refer to [this article](https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm) for more information.*
+
 
 ## Checklist
 
